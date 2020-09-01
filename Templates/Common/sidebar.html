@@ -1,0 +1,105 @@
+{%spaceless%}
+<div class="sidebar">
+  <nav class="sidebar-nav">
+    <ul class="nav">
+      <li class="nav-item">
+        <a class="nav-link" href="{%url 'demohome'%}">
+        <i class="nav-icon icon-speedometer"></i> Dashboard</a>
+      </li>
+      {% if data.has_config %}
+        <li class="nav-title" style="color: #45a2ff;font-size:12px;">Administration</li>
+        {%for key, value in data.config.items%}
+          {% if value.items|length == 1 %}
+          {%for tsk,tskurl in value.items %}
+          <li class="nav-item">
+            <a class="nav-link" href="{%url tskurl%}" style="font-size: 13px;">{{tsk}}</a>
+          </li>
+          {%endfor%}
+          {%else%}
+          <li class="nav-item nav-dropdown">
+            <a class="nav-link nav-dropdown-toggle" href="#" style="font-size: 13px;">{{key}}</a>
+            <ul class="nav-dropdown-items">
+              {%for tsk,tskurl in value.items %}
+              <li class="nav-item">
+                <a class="nav-link" href="{%url tskurl%}" style="padding-left: 24px;">&nbsp;&nbsp;&nbsp;&nbsp;{{tsk}}</a>
+              </li>
+              {%endfor%}
+            </ul>
+          </li>
+          {%endif%}
+        {%endfor%}
+      {% endif %} 
+      {% if data.has_op %}
+        <li class="nav-title" style="color: #45a2ff;font-size:12px;">Operation</li>
+        {%for key, value in data.op.items%}
+          {% if value.items|length == 1 %}
+          {%for tsk,tskurl in value.items %}
+          <li class="nav-item">
+            <a class="nav-link" href="{%url tskurl%}" style="font-size: 13px;">{{tsk}}</a>
+          </li>
+          {%endfor%}
+          {%else%}
+          <li class="nav-item nav-dropdown">
+            <a class="nav-link nav-dropdown-toggle" href="#" style="font-size: 13px;">{{key}}</a>
+            <ul class="nav-dropdown-items">
+              {%for tsk,tskurl in value.items %}
+              <li class="nav-item">
+                <a class="nav-link" href="{%url tskurl%}" style="padding-left: 24px;">&nbsp;&nbsp;&nbsp;&nbsp;{{tsk}}</a>
+              </li>
+              {%endfor%}
+            </ul>
+          </li>
+          {%endif%}
+        {%endfor%}
+      {% endif %}
+      {% if data.has_report %}
+        <li class="nav-title" style="color: #45a2ff;font-size:12px;">Report</li>
+        {%for key, value in data.report.items%}
+          {% if value.items|length == 1 %}
+          {%for tsk,tskurl in value.items %}
+          <li class="nav-item">
+            <a class="nav-link" href="{%url tskurl%}" style="font-size: 13px;">{{tsk}}</a>
+          </li>
+          {%endfor%}
+          {%else%}
+          <li class="nav-item nav-dropdown">
+            <a class="nav-link nav-dropdown-toggle" href="#" style="font-size: 13px;">{{key}}</a>
+            <ul class="nav-dropdown-items">
+              {%for tsk,tskurl in value.items %}
+              <li class="nav-item">
+                <a class="nav-link" href="{%url tskurl%}" style="padding-left: 24px;">&nbsp;&nbsp;&nbsp;&nbsp;{{tsk}}</a>
+              </li>
+              {%endfor%}
+            </ul>
+          </li>
+          {%endif%}
+        {%endfor%}
+      {% endif %}
+      {% if data.has_archived %}
+        <li class="nav-title" style="color: #45a2ff;font-size:12px;">Archived</li>
+        {%for key, value in data.archived.items%}
+          {% if value.items|length == 1 %}
+          {%for tsk,tskurl in value.items %}
+          <li class="nav-item">
+            <a class="nav-link" href="{%url tskurl%}" style="font-size: 13px;">{{tsk}}</a>
+          </li>
+          {%endfor%}
+          {%else%}
+          <li class="nav-item nav-dropdown">
+            <a class="nav-link nav-dropdown-toggle" href="#" style="font-size: 13px;">{{key}}</a>
+            <ul class="nav-dropdown-items">
+              {%for tsk,tskurl in value.items %}
+              <li class="nav-item">
+                <a class="nav-link" href="{%url tskurl%}" style="padding-left: 24px;">&nbsp;&nbsp;&nbsp;&nbsp;{{tsk}}</a>
+              </li>
+              {%endfor%}
+            </ul>
+          </li>
+          {%endif%}
+        {%endfor%}
+      {% endif %}
+    </ul>
+    <div style="height: 100px;"></div>
+  </nav>
+</div>
+{%endspaceless%}

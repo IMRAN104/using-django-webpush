@@ -1,0 +1,31 @@
+{%load static%}
+{% load webpush_notifications %}
+<!DOCTYPE html>
+<html lang="en"
+      dir="ltr">
+
+<head>
+      <meta charset="utf-8">
+      <meta name="viewport"
+            content="width=device-width, initial-scale=1, shrink-to-fit=no">
+      {% comment %} For django templating engine {% endcomment %}
+      {% webpush_header %}
+      {%block title %}
+      {%endblock %}
+      {%block style%}
+      {%endblock%}
+</head>
+
+<body class="app header-fixed sidebar-fixed sidebar-lg-show">
+      <div id="load_screen">
+            <div class="spinner"></div>
+      </div>
+      {%spaceless%}
+      {%block content%}
+      {%endblock content%}
+      {%endspaceless%}
+      {%block js%}
+      {%endblock%}
+</body>
+
+</html>
